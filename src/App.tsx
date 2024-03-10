@@ -1,7 +1,7 @@
-import { createSignal } from 'solid-js'
-import solidLogo from './assets/solid.svg'
-import viteLogo from '/vite.svg'
-import type { Component, JSX } from "solid-js";
+// import { createSignal } from 'solid-js'
+// import solidLogo from './assets/solid.svg'
+// import viteLogo from '/vite.svg'
+import type { Component } from "solid-js";
 // import { SearchInput } from './components/search'
 // import MyComponent  from './components/animate';
 import TestForm from "./components/testForm";
@@ -14,7 +14,6 @@ export const Greeting: Component<{name: string}> = (props) => {
 }
 
 function App() {
-  const [count, setCount] = createSignal(0)
 
   return (
     <>

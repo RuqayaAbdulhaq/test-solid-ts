@@ -1,6 +1,6 @@
-import { createSignal, Show, Switch, Match } from "solid-js";
-import { Motion, Presence } from "solid-motionone";
-import type { Component, JSX } from "solid-js";
+import { createSignal,  Switch, Match } from "solid-js";
+import { Motion } from "solid-motionone";
+import type { Component } from "solid-js";
 
 type ClickEventHandler = (event: MouseEvent) => void;
 
