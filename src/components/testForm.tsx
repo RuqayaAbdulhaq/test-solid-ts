@@ -37,7 +37,7 @@ const ArrowComponent: Component<{ clickedHandler: ClickEventHandler }> = (props)
   return (
     <Motion.span
           class="p-[8px] bg-[#f5f5f5] rounded-[32px] cursor-pointer"
-          initial={{ opacity: 0.3, x: -256 }}
+          initial={{ opacity: 0.5, x: -256 }}
           onclick={props.clickedHandler}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.32, easing: "ease-out" }}
