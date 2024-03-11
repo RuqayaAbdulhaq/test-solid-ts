@@ -2,34 +2,77 @@ import { createSignal,  Switch, Match } from "solid-js";
 import { Motion } from "solid-motionone";
 import type { Component } from "solid-js";
 
+//Types
 type ClickEventHandler = (event: MouseEvent) => void;
 
-const NameOnCard: Component<{ changeFormType: Function }> = (props) => {
-  const editClickedHandler: ClickEventHandler = () => {
-    props.changeFormType("result-form");
-  };
+const EditComponent: Component<{ editClickedHandler: ClickEventHandler }> = (props) => {
+  
   return (
-    <div class="flex items-center gap-[4px] rounded-[32px] border border-[#1d1d1f14] p-[8px] w-[328px] h-[52px]">
-      <span class="">
-        <div class="flex gap-[4px] items-center justify-center p-[8px] bg-[#F5F5F5] w-[64px] h-[36px] rounded-[32px] cursor-pointer">
-          <span class="stroke-[#1d1d1f]">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-            >
-              <path
+    <div
+        onclick={props.editClickedHandler}
+        class="flex gap-[4px] items-center justify-center p-[8px] bg-[#F5F5F5] w-[64px] h-[36px] rounded-[32px] cursor-pointer"
+      >
+        <span class="stroke-[#1d1d1f]">
+        <svg xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none">
+            <path
                 d="M16.3483 17.7083C16.3483 14.7067 13.0017 12.2667 10 12.2667C6.99834 12.2667 3.65167 14.7067 3.65167 17.7083M10 9.54666C10.9621 9.54666 11.8847 9.16448 12.565 8.48419C13.2453 7.8039 13.6275 6.88123 13.6275 5.91916C13.6275 4.95708 13.2453 4.03442 12.565 3.35413C11.8847 2.67384 10.9621 2.29166 10 2.29166C9.03793 2.29166 8.11526 2.67384 7.43498 3.35413C6.75469 4.03442 6.37251 4.95708 6.37251 5.91916C6.37251 6.88123 6.75469 7.8039 7.43498 8.48419C8.11526 9.16448 9.03793 9.54666 10 9.54666Z"
                 stroke="inherit"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-              ></path>
-            </svg>
-          </span>
-          <p class="text-[13px] leading-[130%] font-[500]">Edit</p>
-        </div>
+            >
+            </path>
+        </svg>
+        </span>
+        <p class="text-[13px] leading-[130%] font-[500]">Edit</p>
+    </div>
+  );
+};
+
+const ArrowComponent: Component<{ clickedHandler: ClickEventHandler }> = (props) => {
+  
+  return (
+    <Motion.span
+          class="p-[8px] bg-[#f5f5f5] rounded-[32px] cursor-pointer"
+          initial={{ opacity: 0.3, x: -256 }}
+          onclick={props.clickedHandler}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.32, easing: "ease-out" }}
+        >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+        >
+          <path
+            d="M7.5 15L12.5 10L7.5 5"
+            stroke="#1D1D1F"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
+    </Motion.span>
+  );
+};
+
+const NameOnCard: Component<{ changeFormType: Function }> = (props) => {
+  const editClickedHandler: ClickEventHandler = () => {
+    props.changeFormType("name-form");
+  };
+
+  const arrowClickedHandler: ClickEventHandler = () => {
+    props.changeFormType("default");
+  };
+
+  return (
+    <>
+      <span class="">
+        <EditComponent editClickedHandler={editClickedHandler}/>
       </span>
       <span>
         <svg
@@ -58,42 +101,19 @@ const NameOnCard: Component<{ changeFormType: Function }> = (props) => {
         type="text"
         style="width: 176px;"
       />
-      <Motion.span
-          class="p-[8px] bg-[#f5f5f5] rounded-[32px] cursor-pointer"
-          initial={{ opacity: 0.3, x: -256 }}
-          onclick={editClickedHandler}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.35, easing: "ease-out" }}
-        >
-      {/* <span class="p-[8px] bg-[#f5f5f5] rounded-[32px]"> */}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 20 20"
-          fill="none"
-        >
-          <path
-            d="M7.5 15L12.5 10L7.5 5"
-            stroke="#1D1D1F"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          ></path>
-        </svg>
-      {/* </span> */}
-      </Motion.span>
-    </div>
+      <ArrowComponent clickedHandler={arrowClickedHandler}/>
+    </>
   );
 };
 
 const NameInput: Component<{ changeFormType: Function }> = (props) => {
   
-    const editClickedHandler: ClickEventHandler = () => {
+    const arrowClickedHandler: ClickEventHandler = () => {
     props.changeFormType("name-card-form");
   };
 
   return (
-    <div class="flex items-center gap-[4px] rounded-[32px] border border-[#1d1d1f14] p-[8px] w-[328px] h-[52px]">
+    <>
       <div class="flex items-center gap-[4px]">
         <span class="stroke-[#86868B]">
           <svg
@@ -117,32 +137,9 @@ const NameInput: Component<{ changeFormType: Function }> = (props) => {
           type="text"
           style="width: 244px;"
         />
-        <Motion.span
-          class="p-[8px] bg-[#f5f5f5] rounded-[32px] cursor-pointer"
-          initial={{ opacity: 0.3, x: -256 }}
-          onclick={editClickedHandler}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.35, easing: "ease-out" }}
-        >
-          {/* <span class=""> */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-          >
-            <path
-              d="M7.5 15L12.5 10L7.5 5"
-              stroke="#1D1D1F"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            ></path>
-          </svg>
-          {/* </span> */}
-        </Motion.span>
+        <ArrowComponent clickedHandler={arrowClickedHandler}/>
       </div>
-    </div>
+    </>
   );
 };
 
@@ -152,29 +149,8 @@ const DefaultForm: Component<{ changeFormType: Function }> = (props) => {
   };
 
   return (
-    <div class="flex items-center gap-[4px] rounded-[32px] border border-[#1d1d1f14] p-[8px] w-[328px] h-[52px]">
-      <div
-        onclick={editClickedHandler}
-        class="flex gap-[4px] items-center justify-center p-[8px] bg-[#F5F5F5] w-[64px] h-[36px] rounded-[32px] cursor-pointer"
-      >
-        <span class="stroke-[#1d1d1f]">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-          >
-            <path
-              d="M16.3483 17.7083C16.3483 14.7067 13.0017 12.2667 10 12.2667C6.99834 12.2667 3.65167 14.7067 3.65167 17.7083M10 9.54666C10.9621 9.54666 11.8847 9.16448 12.565 8.48419C13.2453 7.8039 13.6275 6.88123 13.6275 5.91916C13.6275 4.95708 13.2453 4.03442 12.565 3.35413C11.8847 2.67384 10.9621 2.29166 10 2.29166C9.03793 2.29166 8.11526 2.67384 7.43498 3.35413C6.75469 4.03442 6.37251 4.95708 6.37251 5.91916C6.37251 6.88123 6.75469 7.8039 7.43498 8.48419C8.11526 9.16448 9.03793 9.54666 10 9.54666Z"
-              stroke="inherit"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            ></path>
-          </svg>
-        </span>
-        <p class="text-[13px] leading-[130%] font-[500]">Edit</p>
-      </div>
+    <>
+      <EditComponent editClickedHandler={editClickedHandler}/>
       <div class="flex gap-[4px] items-center justify-center p-[8px] bg-[#F5F5F5] w-[98px] h-[36px] rounded-[32px] cursor-pointer">
         <span>
           <svg
@@ -232,7 +208,7 @@ const DefaultForm: Component<{ changeFormType: Function }> = (props) => {
           value="78590"
         />
       </div>
-    </div>
+    </>
   );
 };
 
@@ -240,16 +216,18 @@ export default function App() {
   const [formType, setFormType] = createSignal("default");
 
   return (
-    <Switch>
-      <Match when={formType() === "default"}>
-        <DefaultForm changeFormType={setFormType} />
-      </Match>
-      <Match when={formType() === "name-form"}>
-        <NameInput changeFormType={setFormType} />
-      </Match>
-      <Match when={formType() === "name-card-form"}>
-        <NameOnCard changeFormType={setFormType} />
-      </Match>
-    </Switch>
+    <div class="flex items-center gap-[4px] rounded-[32px] border border-[#1d1d1f14] p-[8px] w-[328px] h-[52px]">
+      <Switch>
+        <Match when={formType() === "default"}>
+          <DefaultForm changeFormType={setFormType} />
+        </Match>
+        <Match when={formType() === "name-form"}>
+          <NameInput changeFormType={setFormType} />
+        </Match>
+        <Match when={formType() === "name-card-form"}>
+          <NameOnCard changeFormType={setFormType} />
+        </Match>
+      </Switch>
+    </div>
   );
 }
