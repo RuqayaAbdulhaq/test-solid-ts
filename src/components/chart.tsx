@@ -31,8 +31,8 @@ export const CanvasLineChart = (props: {
               cubicInterpolationMode: "default",
               fill: false,
               pointStyle: "circle",
-              pointRadius: props.xAxisLabels.map((label, index) => {
-                console.log(label);
+              pointRadius: props.xAxisLabels.map((i, index) => {
+                console.log(i);
                 return index === ( props.xAxisLabels.length -1 ) ? 2 : 0
               })
             },
