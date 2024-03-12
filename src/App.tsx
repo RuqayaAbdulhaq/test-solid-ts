@@ -19,11 +19,11 @@ function App() {
   return (
     <div class="flex flex-col gap-[30px]">
       <div class="bg-[#ffffff] w-[364px] h-[180px] rounded-[10px] p-[18px]">
-        <div class="pl-[2px] pl-[5px] flex text-[13px] gap-[12px] align-middle items-center">
+        <div class="pl-[5px] flex text-[13px] gap-[12px] align-middle items-center">
           <span class="text-[#41475b] font-medium">Connect gross volume</span>
           <div class="bg-[#e3e8ee] text-[#41475b] font-medium px-[4px] rounded-[5px]">0.0%</div>
         </div>
-        <div class="pl-[2px] pl-[5px] flex w-full justify-between items-center">
+        <div class="pl-[5px] flex w-full justify-between items-center">
           <span class="text-[#1a2036] text-[16px] font-medium">$0.00</span>
           <span class="text-[#777f91] text-[13px] font-medium">$0.00</span>
         </div>
@@ -33,11 +33,11 @@ function App() {
       </div>
 
       <div class="bg-[#ffffff] w-[364px] h-[180px] rounded-[10px] p-[18px]">
-        <div class="pl-[2px] pl-[5px] flex text-[13px] gap-[12px] align-middle items-center">
+        <div class="pl-[5px] flex text-[13px] gap-[12px] align-middle items-center">
           <span class="text-[#41475b] font-medium">Connect gross volume</span>
           <div class="bg-[#e3e8ee] text-[#41475b] font-medium px-[4px] rounded-[5px]">0.0%</div>
         </div>
-        <div class="pl-[2px] pl-[5px] flex w-full justify-between items-center">
+        <div class="pl-[5px] flex w-full justify-between items-center">
           <span class="text-[#1a2036] text-[16px] font-medium">$0.00</span>
           <span class="text-[#777f91] text-[13px] font-medium">$0.00</span>
         </div>
@@ -47,15 +47,15 @@ function App() {
       </div>
 
       <div class="bg-[#ffffff] w-[364px] h-[180px] rounded-[10px] p-[18px]">
-        <div class="pl-[2px] pl-[5px] flex text-[13px] gap-[12px] align-middle items-center">
+        <div class="pl-[5px] flex text-[13px] gap-[12px] align-middle items-center">
           <span class="text-[#41475b] font-medium">Connect gross volume</span>
           <div class="bg-[#e3e8ee] text-[#41475b] font-medium px-[4px] rounded-[5px]">0.0%</div>
         </div>
-        <div class="pl-[2px] pl-[5px] flex w-full justify-between items-center">
+        <div class="pl-[5px] flex w-full justify-between items-center">
           <span class="text-[#1a2036] text-[16px] font-medium">$0.00</span>
           <span class="text-[#777f91] text-[13px] font-medium">$0.00</span>
         </div>
-        <div class="h-[75%]">
+        <div class="h-[75%] w-full">
           <CanvasLineChart xAxisData={[1,2]} xAxisLabels={["Nov 17","Today"]} beginAtZero={false}/>
         </div>
       </div>

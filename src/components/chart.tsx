@@ -39,6 +39,11 @@ export const CanvasLineChart = (props: {
           ],
         },
         options: {
+            layout: {
+                padding: {
+                    right: -10
+                }
+            },
           responsive: true,
           maintainAspectRatio: false,
           plugins: {
@@ -71,6 +76,7 @@ export const CanvasLineChart = (props: {
                     color: "#777f91",
                     maxTicksLimit: 2,
                     autoSkip: false,
+                    
                     align: "inner",
                     font: {
                         size: 13,
@@ -78,9 +84,6 @@ export const CanvasLineChart = (props: {
                   },
             }
           },
-          layout: {
-            autoPadding: false,
-          }
         },
       });
       onCleanup(() => chart?.destroy?.());
