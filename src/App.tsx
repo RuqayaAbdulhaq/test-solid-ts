@@ -6,6 +6,8 @@ import type { Component } from "solid-js";
 // import MyComponent  from './components/animate';
 // import TestForm from "./components/testForm";
 import { CanvasLineChart } from "./components/chart";
+
+import { CanvasLineChart2 } from "./components/chart2";
 import './App.css'
 
 export const Greeting: Component<{name: string}> = (props) => {
@@ -28,7 +30,8 @@ function App() {
           <span class="text-[#777f91] text-[13px] font-medium">$0.00</span>
         </div>
         <div class="h-[75%]">
-          <CanvasLineChart xAxisData={[0,0]} xAxisLabels={["Nov 17","Today"]} beginAtZero={false}/>
+          <CanvasLineChart xAxisData={[0,0,0,0,0,0,0]} 
+          xAxisLabels={["Nov 17","","","","","","Today"]} beginAtZero={false}/>
         </div>
       </div>
 
@@ -42,7 +45,8 @@ function App() {
           <span class="text-[#777f91] text-[13px] font-medium">$0.00</span>
         </div>
         <div class="h-[75%]">
-          <CanvasLineChart xAxisData={[3,1]} xAxisLabels={["Nov 17","Today"]} beginAtZero={false}/>
+          <CanvasLineChart xAxisData={[3,3,1]} 
+          xAxisLabels={["Nov 17","","Today"]} beginAtZero={false}/>
         </div>
       </div>
 
@@ -56,10 +60,40 @@ function App() {
           <span class="text-[#777f91] text-[13px] font-medium">$0.00</span>
         </div>
         <div class="h-[75%] w-full">
-          <CanvasLineChart xAxisData={[1,2]} xAxisLabels={["Nov 17","Today"]} beginAtZero={false}/>
+        <CanvasLineChart xAxisData={[1,1,2]} 
+          xAxisLabels={["Nov 17","","Today"]} beginAtZero={false}/>
         </div>
       </div>
       
+      <div class="bg-[#ffffff] w-[364px] h-[180px] rounded-[10px] p-[18px]">
+        <div class="pl-[5px] flex text-[13px] gap-[12px] align-middle items-center">
+          <span class="text-[#41475b] font-medium">Connect gross volume</span>
+          <div class="bg-[#e3e8ee] text-[#41475b] font-medium px-[4px] rounded-[5px]">0.0%</div>
+        </div>
+        <div class="pl-[5px] flex w-full justify-between items-center">
+          <span class="text-[#1a2036] text-[16px] font-medium">$0.00</span>
+          <span class="text-[#777f91] text-[13px] font-medium">$0.00</span>
+        </div>
+        <div class="h-[75%]">
+          <CanvasLineChart2 xAxisData={[0,0]} 
+          xAxisLabels={["Nov 17","Today"]} beginAtZero={false}/>
+        </div>
+      </div>
+
+      <div class="bg-[#ffffff] w-[364px] h-[180px] rounded-[10px] p-[18px]">
+        <div class="pl-[5px] flex text-[13px] gap-[12px] align-middle items-center">
+          <span class="text-[#41475b] font-medium">Connect gross volume</span>
+          <div class="bg-[#e3e8ee] text-[#41475b] font-medium px-[4px] rounded-[5px]">0.0%</div>
+        </div>
+        <div class="pl-[5px] flex w-full justify-between items-center">
+          <span class="text-[#1a2036] text-[16px] font-medium">$0.00</span>
+          <span class="text-[#777f91] text-[13px] font-medium">$0.00</span>
+        </div>
+        <div class="h-[75%]">
+          <CanvasLineChart2 xAxisData={[3,1]} 
+          xAxisLabels={["Nov 17","Today"]} beginAtZero={false}/>
+        </div>
+      </div>
     </div>
   )
 }

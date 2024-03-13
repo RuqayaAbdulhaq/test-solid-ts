@@ -4,7 +4,7 @@ import annotationPlugin from "chartjs-plugin-annotation";
 
 Chart.register(annotationPlugin);
 
-export const CanvasLineChart = (props: {
+export const CanvasLineChart2 = (props: {
   class?: string;
   style?: JSX.CSSProperties;
   xAxisData: number[];
@@ -26,6 +26,7 @@ export const CanvasLineChart = (props: {
             pointBorderColor: "#5e72d7",
             pointBorderWidth: 1,
             borderWidth: 1.5,
+            borderDash: [2,3],
             cubicInterpolationMode: "default",
             fill: false,
             pointStyle: "circle",
@@ -33,17 +34,6 @@ export const CanvasLineChart = (props: {
               i = i;
               return index === props.xAxisLabels.length - 1 ? 2 : 0;
             }),
-            segment: {
-              borderDash: (ctx: any) => {
-                // Check if this segment is the last one in the dataset
-                const segment = ctx;
-                if (segment.p1DataIndex === props.xAxisLabels.length - 1) {
-                  //Apply dashed style to the last segment
-                  return [3, 2];
-                }
-                return [];
-              },
-            },
           },
         ],
       },
