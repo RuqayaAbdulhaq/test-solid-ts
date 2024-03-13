@@ -45,8 +45,8 @@ function App() {
           <span class="text-[#777f91] text-[13px] font-medium">$0.00</span>
         </div>
         <div class="h-[75%]">
-          <CanvasLineChart xAxisData={[3,3,1]} 
-          xAxisLabels={["Nov 17","","Today"]} beginAtZero={false}/>
+          <CanvasLineChart xAxisData={[3,3,2,4,1]} 
+          xAxisLabels={["Nov 17","","","","Today"]} beginAtZero={false}/>
         </div>
       </div>
 

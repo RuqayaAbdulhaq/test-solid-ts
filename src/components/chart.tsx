@@ -80,6 +80,7 @@ export const CanvasLineChart = (props: {
             },
             border: {
               display: true,
+              color: "#d3d3d3"
             },
             ticks: {
               color: "#777f91",
